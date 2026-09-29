@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Expense Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-bg"></div>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-wallet"></i> AI Expense Manager</h1>
+            <p class="subtitle">Track your expenses with style</p>
+        </header>
+
+        <div class="dashboard">
+            <!-- Total Card -->
+            <div class="stat-card total-card">
+                <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                <div class="stat-info">
+                    <h3>Total Expenses</h3>
+                    <p class="stat-value" id="totalAmount">$0.00</p>
+                </div>
+            </div>
+
+            <!-- Add Expense Form -->
+            <div class="form-card">
+                <h2><i class="fas fa-plus-circle"></i> Add Expense</h2>
+                <form id="expenseForm">
+                    <div class="input-group">
+                        <i class="fas fa-tag"></i>
+                        <input type="text" id="description" placeholder="Description" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-dollar-sign"></i>
+                        <input type="number" id="amount" placeholder="Amount" step="0.01" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-list"></i>
+                        <select id="category" required>
+                            <option value="">Select Category</option>
+                            <option value="Food">🍔 Food</option>
+                            <option value="Transport">🚗 Transport</option>
+                            <option value="Shopping">🛍️ Shopping</option>
+                            <option value="Bills">📄 Bills</option>
+                            <option value="Entertainment">🎬 Entertainment</option>
+                            <option value="Health">💊 Health</option>
+                            <option value="Other">📦 Other</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-calendar"></i>
+                        <input type="date" id="date">
+                    </div>
+                    <button type="submit" class="btn-add">
+                        <i class="fas fa-plus"></i> Add Expense
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Expenses List -->
+        <div class="expenses-section">
+            <h2><i class="fas fa-receipt"></i> Recent Expenses</h2>
+            <div id="expensesList" class="expenses-list"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
